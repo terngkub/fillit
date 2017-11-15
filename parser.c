@@ -6,7 +6,7 @@
 /*   By: fbabin <fbabin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 19:32:53 by fbabin            #+#    #+#             */
-/*   Updated: 2017/11/13 12:04:06 by nkamolba         ###   ########.fr       */
+/*   Updated: 2017/11/15 16:03:57 by nkamolba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,10 @@ int		main(int argc, char **argv)
 		return (0);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-	{
-		ft_putstr("open() failed\n");
-		return (1);
-	}
+		return (ft_error(1));
 	if (!ft_read(fd, warning, ret, nb_tetri))
 		return (ft_error(1));
 	if (close(fd) == -1)
-	{
-		ft_putstr("close() failed\n");
-		return (1);
-	}
+		return (ft_error(1));
 	return (0);
 }
